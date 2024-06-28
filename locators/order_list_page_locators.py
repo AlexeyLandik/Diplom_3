@@ -13,3 +13,10 @@ class OrderListLocators:
     ORDER_CARD_MODAL_WINDOW = (By.XPATH, "//div[@class='Modal_orderBox__1xWdi Modal_modal__contentBox__sCy8X p-10']")
     LEFT_BLOCK = (By.XPATH, "//ul[@class='OrderFeed_list__OLh59']")
     NUMBER_IN_WORK = (By.XPATH, "(//li[contains(@class, 'text text_type_digits-default mb-2')])[6][1]")
+    INGREDIENT = (By.XPATH, "//a[@href='/ingredient/61c0c5a71d1f82001bdaaa6c']/div/p["
+                            "@class='counter_counter__num__3nue1']")
+    ORDER_BASKET = (By.XPATH, "//ul[@class='BurgerConstructor_basket__list__l9dp_']")
+    BUTTON_ACCOUNT = (By.XPATH, "//*[contains(text(), 'Личный Кабинет')]")
+    BUTTON_ENTER = (By.XPATH, "//button[text()='Войти']")
+    BUTTON_MAKE_ORDER = (By.XPATH, "//button[text()='Оформить заказ']")
+    BUTTON_HISTORY_PROFILE = (By.XPATH, "//a[text()='История заказов']")

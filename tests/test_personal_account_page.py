@@ -1,5 +1,3 @@
-import allure
-
 from pages.personal_account_page import PersonalAccount
 from data import Urls
 import allure

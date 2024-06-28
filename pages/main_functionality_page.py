@@ -1,7 +1,6 @@
 from pages.base_page import BasePage
 import allure
 from seletools.actions import drag_and_drop
-from locators.personal_account_page_locators import PersonalAccountPageLocators
 from locators.main_functionality_page_locators import MainFunctionalityLocators
 
 
@@ -50,7 +49,7 @@ class MainFunctionality(BasePage):
 
     @allure.step('Клик по кнопке "Войти"')
     def click_enter_button(self):
-        self.click(PersonalAccountPageLocators.BUTTON_ENTER)
+        self.click(MainFunctionalityLocators.BUTTON_ENTER)
 
     @allure.step('Завершить логин пользователя и оформить заказ')
     def finish_login_and_make_order(self):
