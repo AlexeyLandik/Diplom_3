@@ -47,12 +47,8 @@ class MainFunctionality(BasePage):
         name = self.wait_and_find_element(MainFunctionalityLocators.CONFIRMATION_TEXT)
         return name
 
-    @allure.step('Клик по кнопке "Войти"')
-    def click_enter_button(self):
-        self.click(MainFunctionalityLocators.BUTTON_ENTER)
-
-    @allure.step('Завершить логин пользователя и оформить заказ')
-    def finish_login_and_make_order(self):
-        self.click_enter_button()
-        self.put_ingredient_into_basket()
-        self.click_make_order()
+    @allure.step('Перетаскиваем ингредиент в корзину покупателя')
+    def put_ingredient_into_basket(self):
+        ingredient = self.wait_and_find_element(MainFunctionalityLocators.INGREDIENT)
+        basket = self.wait_and_find_element(MainFunctionalityLocators.ORDER_BASKET)
+        drag_and_drop(self.driver, ingredient, basket)

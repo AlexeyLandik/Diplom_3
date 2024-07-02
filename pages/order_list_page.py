@@ -1,10 +1,7 @@
 from pages.base_page import BasePage
 import allure
-from seletools.actions import drag_and_drop
 from data import Urls
 from locators.order_list_page_locators import OrderListLocators
-# from locators.main_functionality_page_locators import MainFunctionalityLocators
-# from locators.personal_account_page_locators import PersonalAccountPageLocators
 
 
 class OrderList(BasePage):
@@ -27,46 +24,14 @@ class OrderList(BasePage):
         name = self.wait_and_find_element(OrderListLocators.ORDER_CARD_MODAL_WINDOW)
         return name
 
-    @allure.step('Перетаскиваем ингредиент в корзину покупателя')
-    def put_ingredient_into_basket(self):
-        ingredient = self.wait_and_find_element(OrderListLocators.INGREDIENT)
-        basket = self.wait_and_find_element(OrderListLocators.ORDER_BASKET)
-        drag_and_drop(self.driver, ingredient, basket)
-
-    @allure.step('Клик по кнопке "Личный кабинет"')
-    def click_button_account(self):
-        self.click(OrderListLocators.BUTTON_ACCOUNT)
-
-    @allure.step('Клик по кнопке "Войти"')
-    def click_enter_button(self):
-        self.click(OrderListLocators.BUTTON_ENTER)
-
-    @allure.step('Клик по кнопке "Оформить заказ"')
-    def click_make_order(self):
-        self.click(OrderListLocators.BUTTON_MAKE_ORDER)
-
     @allure.step('Клик по крестику всплывающего окна')
     def click_cross(self):
         self.click(OrderListLocators.ORDER_CARD_MODAL_WINDOW_CROSS)
 
-    @allure.step('Клик по кнопке "История заказов"')
-    def click_history_profile(self):
-        self.click(OrderListLocators.BUTTON_HISTORY_PROFILE)
-
     @allure.step('Войти в личный кабинет, далее в "Историю заказов" и дождаться карточки заказа')
     def enter_account_enter_profile_history(self):
-        self.click_button_account()
         self.wait_for_url_changes_main()
         self.wait_for_url_changes_profile()
-        self.click_history_profile()
-        self.wait_and_find_order_card()
-
-    @allure.step('Завершить логин пользователя и оформить заказ, кликнув по крестику окна')
-    def finish_login_make_order_close_window(self):
-        self.click_enter_button()
-        self.put_ingredient_into_basket()
-        self.click_make_order()
-        self.click_cross()
 
     @allure.step('Поиск текста по локатору "номер карточки заказа"')
     def number_text(self):

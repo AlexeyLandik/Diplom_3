@@ -1,6 +1,6 @@
 import allure
-from pages.main_functionality_page import MainFunctionality
 from data import Urls
+from pages.main_functionality_page import MainFunctionality
 from pages.order_list_page import OrderList
 from pages.personal_account_page import PersonalAccount
 
@@ -52,6 +52,8 @@ class TestMainFunctions:
         personal_account_page.click_button_personal_account()
         personal_account_page.set_email_input(email)
         personal_account_page.set_password_input(password)
-        main_functions_page.finish_login_and_make_order()
+        personal_account_page.click_enter_button()
+        main_functions_page.put_ingredient_into_basket()
+        main_functions_page.click_make_order()
         name = main_functions_page.wait_and_find_confirmation()
         assert name.is_displayed()
